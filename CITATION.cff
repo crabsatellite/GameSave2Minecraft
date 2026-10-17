@@ -4,6 +4,8 @@ type: software
 title: GameSave2Minecraft
 version: 0.1.0
 license: MIT
+repository-code: https://github.com/crabsatellite/GameSave2Minecraft
+url: https://github.com/crabsatellite/GameSave2Minecraft
 authors:
   - family-names: Li
     given-names: Alex Chengyu
@@ -26,5 +28,7 @@ preferred-citation:
       given-names: Alex Chengyu
       orcid: https://orcid.org/0009-0008-4516-8946
   year: 2026
+  doi: 10.5281/zenodo.23437178
+  url: https://zenodo.org/records/23437178
   notes: "Working paper."
   license: CC-BY-4.0

@@ -2,6 +2,10 @@
 
 **Agent-guided migration of game saves into playable Minecraft worlds.**
 
+| Build and adapt | Read the research |
+| --- | --- |
+| [Start with the Skill](#start-with-the-skill), [run the example](#run-the-original-example), [build the Minecraft runtime](#minecraft-runtime) | [Read the paper](paper/GameSave2Minecraft.pdf), [paper archive and version history](https://doi.org/10.5281/zenodo.23437177), [case data](docs/case-summary.json) |
+
 Supply a save and its matching local game installation. A coding agent uses REA
 and suitable engine tools to recover the saved world, writes a source adapter,
 and connects it to shared scene contracts, interaction rules and a Minecraft
@@ -120,3 +124,19 @@ See [provenance](docs/PROVENANCE.md) and [third-party notices](THIRD_PARTY_NOTIC
 The distribution contains framework code, an original example and the research
 paper. Commercial game assets, personal saves and source-game binaries remain
 outside it.
+
+## Citation and rights
+
+> Li, Alex Chengyu. 2026. *GameSave2Minecraft: Agent-Guided Migration of Game
+> Saves into Playable Minecraft Worlds*. Working paper.
+> https://doi.org/10.5281/zenodo.23437177
+
+First publicly available on 17 October 2026 through Zenodo. The
+[first paper edition and accompanying source archives](https://zenodo.org/records/23437178)
+retain the published snapshot; this repository contains the reusable implementation
+and Skill. [CITATION.cff](CITATION.cff) provides machine-readable citation metadata.
+
+Author-owned code and the Skill use [MIT](LICENSE). The paper and documentation
+use [CC BY 4.0](LICENSE-PAPER.md); original demo visuals use
+[CC BY 4.0](LICENSE-ASSETS.md). See [license scope](LICENSE-SCOPE.md) for the
+division and [third-party notices](THIRD_PARTY_NOTICES.md) for upstream terms.
