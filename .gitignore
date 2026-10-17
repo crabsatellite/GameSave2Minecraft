@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+.gradle/
+runs/
+run/
+.agents/
+.minecraft-mod-testing/
+AGENTS.md
+.env
+.env.*
+local-inputs/
+minecraft-runtime/build/
+minecraft-runtime/.gradle/

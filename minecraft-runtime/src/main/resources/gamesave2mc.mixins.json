@@ -1,0 +1,1 @@
+{"required":true,"minVersion":"0.8","package":"dev.alex.gamesave2minecraft.client.mixin","compatibilityLevel":"JAVA_21","client":["EntityCullingSnapshotMixin"],"injectors":{"defaultRequire":1}}

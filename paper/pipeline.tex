@@ -1,0 +1,12 @@
+\begin{tikzpicture}[font=\small\sffamily,box/.style={draw=black!55,rounded corners=2pt,fill=black!3,align=center,minimum width=32mm,minimum height=13mm},arr/.style={-{Stealth[length=2mm]},thick}]
+\node[box] (source) {Save, client\\and local assets};
+\node[box,right=7mm of source] (adapter) {Agent + REA\\source adapter};
+\node[box,right=7mm of adapter] (scene) {Shared scene\\and source state};
+\node[box,below=9mm of scene] (target) {Minecraft rules\\and world runtime};
+\node[box,left=7mm of target] (accept) {Coverage, interaction\\and performance};
+\draw[arr] (source)--(adapter);
+\draw[arr] (adapter)--(scene);
+\draw[arr] (scene)--(target);
+\draw[arr] (target)--(accept);
+\draw[arr,dashed] (accept)--node[left,font=\scriptsize]{refine}(adapter);
+\end{tikzpicture}

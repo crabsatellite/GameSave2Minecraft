@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Save to Minecraft"
+  short_description: "Migrate saved game worlds into playable Minecraft"
+  default_prompt: "Use $game-save-to-minecraft to investigate this game's save and local assets, generate a source adapter, and migrate its world with native interactions and measured acceptance."

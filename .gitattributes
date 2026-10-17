@@ -1,0 +1,2 @@
+# Preserve authored bytes across platforms so generated fixture hashes stay stable.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

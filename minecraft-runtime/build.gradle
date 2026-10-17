@@ -1,0 +1,30 @@
+plugins {
+ id 'java-library'
+ id 'net.neoforged.gradle.userdev' version '7.1.4'
+}
+version=mod_version
+group='dev.alex.gamesave2minecraft'
+base { archivesName='gamesave2minecraft' }
+java.toolchain.languageVersion=JavaLanguageVersion.of(21)
+repositories { mavenCentral() }
+dependencies { implementation "net.neoforged:neoforge:${neo_version}" }
+sourceSets.main.resources { srcDir project.hasProperty('sceneGenerated') ? file(project.property('sceneGenerated')) : file('src/generated/resources') }
+sourceSets.main.java { srcDir 'src/gameTest/java'; srcDir 'src/testSupport/java' }
+sourceSets.main.resources { srcDir 'src/gameTest/resources' }
+runs {
+ configureEach { modSource sourceSets.main; systemProperty 'forge.logging.console.level','info'; if(project.hasProperty('runtimeHeartbeat')) systemProperty 'gamesave2mc.heartbeat',project.property('runtimeHeartbeat').toString() }
+ client { workingDirectory file('run/client') }
+ server { workingDirectory file('run/server'); programArgument '--nogui' }
+ named('gameTestServer') {
+  workingDirectory project.hasProperty('minecraftModTestingRuntimeDirectory') ? file(project.property('minecraftModTestingRuntimeDirectory')) : file('build/game-test-server')
+  systemProperty 'neoforge.enabledGameTestNamespaces','gamesave2mc'
+  systemProperty 'gamesave2mc.receipt',project.findProperty('gameSaveReceiptPath')?.toString() ?: file('build/native-receipt.json').absolutePath
+  jvmArguments.addAll('-Xmx2G','-XX:ActiveProcessorCount=2')
+ }
+}
+tasks.withType(JavaCompile).configureEach { options.encoding='UTF-8' }
+tasks.withType(Jar).configureEach { preserveFileTimestamps=false; reproducibleFileOrder=true }
+tasks.named('jar') {
+ exclude 'dev/alex/gamesave2minecraft/testing/**','data/gamesave2mc/structure/**'
+ manifest { attributes 'Implementation-Title':'GameSave2Minecraft','Implementation-Version':project.version }
+}

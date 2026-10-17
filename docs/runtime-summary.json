@@ -1,0 +1,50 @@
+{
+  "schema": "gamesave2minecraft.runtime-summary/1",
+  "framework_version": "0.1.0",
+  "fixture": "Original procedural source save and separately authored client resources",
+  "native_gametest_scenarios": 13,
+  "packaged_client_scenarios": 22,
+  "all_required_checks_passed": true,
+  "program": {
+    "bytes": 165899,
+    "sha256": "48633bd07ca445fcc6e9e8a462b88f7480df6142c7e91c2c140b3ccb81c2c4d0",
+    "independent_public_gradle_build_identical": true,
+    "test_classes_excluded": true
+  },
+  "scene": {
+    "expected_instances": 15,
+    "readback_instances": 15,
+    "asset_definitions": 8,
+    "source_visual_carriers": 17,
+    "retained_inventory": {
+      "capacity": 54,
+      "original_slot": 37,
+      "original_amount": 100000,
+      "source_identity": "demo:ore",
+      "native_nbt_component_equality_verified": true
+    }
+  },
+  "rendering": {
+    "opengl": "4.6.0 NVIDIA 616.56",
+    "comparison_context": "Native OpenGL 4.6; reference, instanced compatibility and indirect paths exercised in this context",
+    "mean_normalized_rgb_error": {
+      "rendererMeanError": 8.565665849673202e-06,
+      "renderer.compatibility_parityMeanError": 0.0,
+      "renderer.emissive_lit_parityMeanError": 0.0,
+      "renderer.emissive_unlit_parityMeanError": 0.0,
+      "rootIndexCacheRebuildMeanError": 0.0
+    },
+    "sorted_emissive_surface_draws_observed": 329,
+    "indirect_gpu_draws_observed": 2207,
+    "root_network_lifecycle_verified": true,
+    "culling_distance_boundary_verified": true,
+    "culling_preserves_other_entities": true
+  },
+  "isolation": {
+    "configuration_restored": true,
+    "hidden_unfocused_muted_input_and_clipboard_isolated": true,
+    "process_starts": 2,
+    "world_loads": 2
+  },
+  "scope": "Correctness and rendered parity of the original example. The historical commercial-game case, real OpenGL 3.2 case and frame-time experiment are separate evidence."
+}

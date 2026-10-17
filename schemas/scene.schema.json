@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gamesave2minecraft:scene:1",
+  "title": "GameSave2Minecraft normalized scene",
+  "type": "object",
+  "required": ["schema", "id", "coordinates", "assets", "instances", "coverage", "evidence"],
+  "properties": {
+    "schema": {"const": "gamesave2minecraft.scene/1"},
+    "id": {"$ref": "#/$defs/id"},
+    "coordinates": {"const": {"unit_metres": 1, "up": "y", "handedness": "right"}},
+    "assets": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/asset"}},
+    "instances": {"type": "array", "items": {"$ref": "#/$defs/instance"}},
+    "coverage": {
+      "type": "object", "required": ["expected_instances", "excluded"],
+      "properties": {
+        "expected_instances": {"type": "integer", "minimum": 0},
+        "excluded": {"type": "array", "items": {"type": "object", "required": ["source_id", "reason"], "properties": {"source_id": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}}}
+      }
+    },
+    "evidence": {"type": "object", "required": ["adapter", "asset_inventory"], "properties": {
+      "adapter": {"type": "string", "minLength": 1},
+      "asset_inventory": {"type": "object", "required": ["expected", "records"], "properties": {
+        "expected": {"type": "integer", "minimum": 0},
+        "records": {"type": "array", "items": {"type": "object", "required": ["source_id", "status"], "properties": {
+          "source_id": {"type": "string", "minLength": 1}, "status": {"enum": ["mapped", "excluded"]},
+          "targets": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "reason": {"type": "string", "minLength": 1}
+        }, "allOf": [
+          {"if": {"properties": {"status": {"const": "mapped"}}}, "then": {"required": ["targets"]}},
+          {"if": {"properties": {"status": {"const": "excluded"}}}, "then": {"required": ["reason"]}}
+        ]}}
+      }}
+    }}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9_][a-z0-9_./-]{0,127}$"},
+    "vec3": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}},
+    "quat": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}},
+    "bounds": {"type": "object", "required": ["from", "to"], "properties": {"from": {"$ref": "#/$defs/vec3"}, "to": {"$ref": "#/$defs/vec3"}}},
+    "asset": {
+      "type": "object", "required": ["id", "behavior", "bounds", "collision", "mesh"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "behavior": {"enum": ["static", "door", "seat", "bed", "storage", "light", "plant", "workstation"]},
+        "bounds": {"$ref": "#/$defs/bounds"},
+        "collision": {"type": "array", "items": {"$ref": "#/$defs/bounds"}},
+        "mesh": {"$ref": "#/$defs/id"},
+        "socket": {"$ref": "#/$defs/vec3"},
+        "hinge": {"$ref": "#/$defs/vec3"},
+        "open_degrees": {"type": "number", "minimum": -180, "maximum": 180, "not": {"const": 0}},
+        "grow_ticks": {"type": "integer", "minimum": 1},
+        "growing_mesh": {"$ref": "#/$defs/id"}
+      },
+      "allOf": [
+        {"if": {"properties": {"behavior": {"enum": ["seat", "bed"]}}}, "then": {"required": ["socket"]}},
+        {"if": {"properties": {"behavior": {"const": "door"}}}, "then": {"required": ["hinge", "open_degrees"]}},
+        {"if": {"properties": {"behavior": {"const": "plant"}}}, "then": {"required": ["growing_mesh", "grow_ticks"]}}
+      ]
+    },
+    "lot": {
+      "type": "object", "required": ["slot", "source_id", "amount"],
+      "properties": {"slot": {"type": "integer", "minimum": 0}, "source_id": {"type": "string", "minLength": 1}, "amount": {"type": "integer", "minimum": 1, "maximum": 9223372036854775807}}
+    },
+    "instance": {
+      "type": "object", "required": ["id", "asset", "position", "rotation", "scale"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"}, "asset": {"$ref": "#/$defs/id"}, "parent": {"$ref": "#/$defs/id"},
+        "position": {"$ref": "#/$defs/vec3"}, "rotation": {"$ref": "#/$defs/quat"}, "scale": {"$ref": "#/$defs/vec3"},
+        "state": {"type": "object", "properties": {"active": {"type": "boolean"}, "remaining_growth_ticks": {"type": "integer", "minimum": 0}, "inventory_slots": {"type": "integer", "minimum": 0}, "inventory": {"type": "array", "items": {"$ref": "#/$defs/lot"}}}}
+      }
+    }
+  }
+}

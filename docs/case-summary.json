@@ -1,0 +1,213 @@
+{
+  "schema": "gamesave2minecraft.case-summary/1",
+  "case": "V Rising saved-castle migration",
+  "source_version": "1.1.13",
+  "case_mod_version": "0.2.1",
+  "generic_framework_version": "0.1.0",
+  "scope": "Building territories, placed objects, gardens and measured support terrain",
+  "coverage": {
+    "castles": 4,
+    "visible_source_objects": 12057,
+    "measured_terrain_patches": 182,
+    "visual_roots": 12239,
+    "excluded_logical_or_invisible_entities": 6172,
+    "excluded_characters": 98,
+    "storage_capacity_objects": 289,
+    "source_inventory_lots": 1044,
+    "source_doors_checked_open_closed": 242,
+    "material_cases": 1074,
+    "zero_tint_alpha_cutout_cases": 112
+  },
+  "acceptance": {
+    "native_gametest_cases": 19,
+    "packaged_client_cases": 38,
+    "real_gl32_cases": 4,
+    "all_required_stages_passed": true
+  },
+  "case_program": {
+    "bytes": 5230655,
+    "sha256": "5a8e41e73b373ae461db579099bcc1f25763167e94a9ae28de67467c95810201"
+  },
+  "resources": {
+    "resourceFiles": 15923,
+    "resourceBytes": 960475483,
+    "maximumFileBytes": 1843061
+  },
+  "performance": {
+    "hardware": "RTX 3090",
+    "driver": "NVIDIA 616.56",
+    "opengl": "4.6",
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.219",
+    "resolution": [
+      1280,
+      800
+    ],
+    "available_processors": 4,
+    "heap_ceiling_gib": 20,
+    "fps_cap": 30,
+    "measurement_seconds_per_scene": 20,
+    "metric": "RenderFrameEvent Pre/Post elapsed work excludes limiter sleep; observed capped FPS includes tick work and frame spacing.",
+    "conditions": [
+      "Byte-matched stopped fixture and fixed camera per scene",
+      "One paired session, candidate measured first",
+      "Other host work continued",
+      "JFR diagnosis recorded separately after qualification",
+      "No mesh or texture removal/simplification in the optimization"
+    ],
+    "rows": [
+      {
+        "scene": "overview",
+        "before": {
+          "frames": 90,
+          "elapsed_seconds": 20.2343979,
+          "render_work_ms": {
+            "mean": 186.26746333333332,
+            "p50": 153.6849,
+            "p95": 406.3781,
+            "p99": 562.7131
+          },
+          "observed_capped_fps": 4.447871414053788
+        },
+        "after": {
+          "frames": 593,
+          "elapsed_seconds": 20.0086224,
+          "render_work_ms": {
+            "mean": 17.90198937605396,
+            "p50": 17.3997,
+            "p95": 21.7896,
+            "p99": 26.1856
+          },
+          "observed_capped_fps": 29.637222800506244
+        }
+      },
+      {
+        "scene": "interior",
+        "before": {
+          "frames": 93,
+          "elapsed_seconds": 20.1544917,
+          "render_work_ms": {
+            "mean": 167.08132903225805,
+            "p50": 162.6398,
+            "p95": 217.0689,
+            "p99": 259.6817
+          },
+          "observed_capped_fps": 4.61435601474385
+        },
+        "after": {
+          "frames": 584,
+          "elapsed_seconds": 20.0060594,
+          "render_work_ms": {
+            "mean": 14.666699828767122,
+            "p50": 13.8111,
+            "p95": 19.6926,
+            "p99": 24.4349
+          },
+          "observed_capped_fps": 29.191155955480166
+        }
+      },
+      {
+        "scene": "away",
+        "before": {
+          "frames": 591,
+          "elapsed_seconds": 20.0072759,
+          "render_work_ms": {
+            "mean": 2.846629949238579,
+            "p50": 2.5042,
+            "p95": 3.7603,
+            "p99": 6.0843
+          },
+          "observed_capped_fps": 29.539253767175772
+        },
+        "after": {
+          "frames": 594,
+          "elapsed_seconds": 20.0067288,
+          "render_work_ms": {
+            "mean": 2.581384006734007,
+            "p50": 2.538,
+            "p95": 3.3107,
+            "p99": 3.6892
+          },
+          "observed_capped_fps": 29.69001109266798
+        }
+      }
+    ]
+  },
+  "limits": [
+    "Empirical case scope is one commercial source game and one user save",
+    "No uncapped 60 FPS or hardware generalization claim",
+    "No separate ablation of individual optimization contributions",
+    "Source characters and original full shader/effect simulation are outside the selected migration scope",
+    "Commercial artwork, private save, saved coordinates and raw screenshots are not distributed"
+  ],
+  "scenario_inventory": {
+    "native_gametest": [
+      "castle_entry_finds_supported_space_beside_furniture_and_rejects_void",
+      "saved_door_accepts_its_frame_but_rejects_new_obstacles",
+      "source_storage_pages_never_accept_items_in_controls_or_unmapped_slots",
+      "source_castle_plans_cover_all_four_layouts",
+      "source_inventory_lots_survive_all_slots_and_carry",
+      "source_double_door_collision_opens_center_passage",
+      "source_foliage_is_selectable_without_solid_volume",
+      "catalog_uses_external_triangle_meshes_and_legal_collision",
+      "external_fragment_replacement_cleans_piece_and_drops_one_carry",
+      "placement_denial_and_creative_break_preserve_world_and_carry",
+      "door_toggle_changes_collision_and_preserves_identity",
+      "coffin_uses_native_sleep_and_respawn",
+      "chair_mounts_native_owned_seat",
+      "storage_inventory_has_27_slots_and_survives_nbt",
+      "ceiling_light_uses_native_emission",
+      "plant_harvest_is_single_and_regrows_from_production_tick",
+      "plant_growth_state_survives_nbt",
+      "cell_state_restores_roots_fragments_and_inventory",
+      "demo_blueprint_generates_and_cleans_without_source_save_claim"
+    ],
+    "packaged_client": [
+      "model.castle_door",
+      "model.coffin",
+      "model.wooden_chair",
+      "model.cotton",
+      "model.sunflower",
+      "model.garden_bush",
+      "model.castle_pillar",
+      "model.wall_panel",
+      "model.floor_tile",
+      "model.ceiling_light",
+      "model.storage_chest",
+      "model.alchemy_workbench",
+      "model.extracted_example_1",
+      "model.extracted_example_2",
+      "inventory.curated_and_raw",
+      "scene.demo_not_source_save",
+      "interaction.door_packet_collision",
+      "interaction.bed",
+      "interaction.seat",
+      "interaction.storage",
+      "interaction.light",
+      "interaction.plant_harvest_regrow",
+      "renderer.gpu_cpu_parity",
+      "renderer.compatibility_parity",
+      "renderer.emissive_lit_parity",
+      "renderer.emissive_unlit_parity",
+      "renderer.root_index_lifecycle",
+      "source.plant.native_stages",
+      "source.stairs.physical_walk",
+      "source.castles.import_all",
+      "source.castle.a",
+      "source.walk.a",
+      "source.castle.b",
+      "source.walk.b",
+      "source.castle.c",
+      "source.walk.c",
+      "source.castle.d",
+      "source.walk.d"
+    ],
+    "real_gl32": [
+      "renderer.gpu_cpu_parity",
+      "renderer.compatibility_parity",
+      "renderer.emissive_lit_parity",
+      "renderer.emissive_unlit_parity"
+    ]
+  },
+  "scenario_inventory_note": "Scenario names describe observed case coverage; private territory and extracted-carrier identifiers use neutral labels. Commercial game art and the personal save are not distributed."
+}

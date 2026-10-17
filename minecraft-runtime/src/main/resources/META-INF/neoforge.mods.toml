@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="gamesave2mc"
+version="0.1.0"
+displayName="GameSave2Minecraft"
+authors="Alex Chengyu Li"
+description="Reusable Minecraft interactions and rendering for normalized game-save scenes."
+[[dependencies.gamesave2mc]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.214,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.gamesave2mc]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"
+[[mixins]]
+config="gamesave2mc.mixins.json"

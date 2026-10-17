@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "Cite the working paper for the migration method and this software for the implementation."
+type: software
+title: GameSave2Minecraft
+version: 0.1.0
+license: MIT
+authors:
+  - family-names: Li
+    given-names: Alex Chengyu
+    orcid: https://orcid.org/0009-0008-4516-8946
+abstract: >-
+  Agent-guided migration of game saves and locally available source assets into
+  playable Minecraft worlds through source adapters, interaction rules and
+  source-bound acceptance.
+keywords:
+  - game preservation
+  - cross-game migration
+  - Minecraft
+  - agent-assisted development
+  - reverse engineering
+preferred-citation:
+  type: article
+  title: "GameSave2Minecraft: Agent-Guided Migration of Game Saves into Playable Minecraft Worlds"
+  authors:
+    - family-names: Li
+      given-names: Alex Chengyu
+      orcid: https://orcid.org/0009-0008-4516-8946
+  year: 2026
+  notes: "Working paper."
+  license: CC-BY-4.0
