@@ -23,8 +23,10 @@ names, platform IDs or personal save files. The paper's diagrams are authored
 vector graphics. The public example is independently generated and does not
 reconstruct the case owner's exact castle layout.
 
-Framework code and generators use the MIT license. The Agent Skill, also MIT,
-is now maintained separately at [CrabMods/game-save-to-minecraft](https://github.com/CrabMods/game-save-to-minecraft);
+The current research distribution contains the reference implementation,
+original fixture and paper. Framework code and generators use the MIT license.
+The portable Agent Skill, also MIT, is maintained separately at
+[CrabMods/game-save-to-minecraft](https://github.com/CrabMods/game-save-to-minecraft);
 earlier published snapshots retain the original Skill files. Original
 fixture assets, documentation and the paper use CC BY 4.0. Dependency rights and
 trademarks remain with their owners. The accompanying license scope identifies

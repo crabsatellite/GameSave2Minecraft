@@ -1,7 +1,7 @@
 cff-version: 1.2.0
-message: "Cite the working paper for the migration method and this software for the implementation."
+message: "Cite the working paper for the research method and this reference software when reusing the implementation. The portable agent Skill is maintained separately by CrabMods."
 type: software
-title: GameSave2Minecraft
+title: "GameSave2Minecraft: Research Reference Implementation"
 version: 0.1.0
 license: MIT
 repository-code: https://github.com/crabsatellite/GameSave2Minecraft
@@ -11,14 +11,17 @@ authors:
     given-names: Alex Chengyu
     orcid: https://orcid.org/0009-0008-4516-8946
 abstract: >-
-  Agent-guided migration of game saves and locally available source assets into
-  playable Minecraft worlds through source adapters, interaction rules and
-  source-bound acceptance.
+  Research reference implementation and original reproducible fixture for
+  agent-guided migration of game saves into playable Minecraft worlds through
+  source adapters, interaction rules and source-bound acceptance. The working
+  paper and aggregate case results accompany the implementation; the portable
+  agent Skill is maintained in a separate CrabMods repository.
 keywords:
   - game preservation
   - cross-game migration
   - Minecraft
-  - agent-assisted development
+  - source-bound evaluation
+  - reproducible research
   - reverse engineering
 preferred-citation:
   type: article

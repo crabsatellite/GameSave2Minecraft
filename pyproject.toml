@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "gamesave2minecraft"
 version = "0.1.0"
-description = "Agent-guided game-save migration contracts and Minecraft scene compilation"
+description = "Research reference implementation of source-bound game-save migration into Minecraft"
 requires-python = ">=3.10"
 authors = [{name = "Alex Chengyu Li"}]
 license = {text = "MIT"}
