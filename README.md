@@ -2,6 +2,11 @@
 
 **Agent-guided migration of game saves into playable Minecraft worlds.**
 
+[![Watch the GameSave2Minecraft demo on YouTube](https://img.youtube.com/vi/tzVSkMqvyoQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=tzVSkMqvyoQ)
+
+[Watch the 80-second demo](https://www.youtube.com/watch?v=tzVSkMqvyoQ): the V Rising
+saved-castle case study, captured in Minecraft with mapped object interactions.
+
 | Build and adapt | Read the research |
 | --- | --- |
 | [Start with the Skill](#start-with-the-skill), [run the example](#run-the-original-example), [build the Minecraft runtime](#minecraft-runtime) | [Read the paper](paper/GameSave2Minecraft.pdf), [paper archive and version history](https://doi.org/10.5281/zenodo.23437177), [case data](docs/case-summary.json) |
