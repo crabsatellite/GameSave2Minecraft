@@ -18,9 +18,11 @@ regrow. Visual stylization is a configurable part of the migration.
 
 ## Start with the Skill
 
-The portable [game-save-to-minecraft Skill](skills/game-save-to-minecraft/SKILL.md)
-contains the source-investigation and migration workflow. Install that folder in
-your agent's supported skill directory, or ask the agent to read it directly.
+The portable [game-save-to-minecraft Skill](https://github.com/CrabMods/game-save-to-minecraft)
+is maintained by CrabMods and contains the source-investigation and migration
+workflow. Install it independently in your agent's supported skill directory,
+or ask the agent to read its `SKILL.md` directly. This personal repository
+contains the research paper, reference implementation and original example.
 REA is an external inspection tool; source-specific asset decoders are selected
 as needed. Game files and generated interop assemblies are supplied locally.
 
@@ -60,7 +62,7 @@ gamesave2minecraft verify-minecraft build/minecraft
 
 The [adapter protocol](src/gamesave2minecraft/adapters.py),
 [original adapter](examples/demo_source.py) and
-[world contract](skills/game-save-to-minecraft/references/world-contract.md)
+[world contract](https://github.com/CrabMods/game-save-to-minecraft/blob/main/references/world-contract.md)
 show the boundary. The initial target emitter makes transform-baking and
 unsupported-interaction requirements explicit so an agent can resolve them.
 
@@ -116,7 +118,7 @@ Useful source locations:
 
 - `src/gamesave2minecraft/`: adapter interfaces, validation, transforms and compilers.
 - `minecraft-runtime/`: reusable interactions, persistence, generation and rendering.
-- `skills/game-save-to-minecraft/`: agent workflow and supporting contracts.
+- [CrabMods/game-save-to-minecraft](https://github.com/CrabMods/game-save-to-minecraft): separately maintained agent workflow and supporting contracts.
 - `examples/demo/`: original source save, catalog, models and textures.
 - `tools/generate_demo.py`: reproducible visual/data authoring.
 
@@ -134,7 +136,9 @@ outside it.
 First publicly available on 17 October 2026 through Zenodo. The
 [first paper edition and accompanying source archives](https://zenodo.org/records/23437178)
 retain the published snapshot; this repository contains the reusable implementation
-and Skill. [CITATION.cff](CITATION.cff) provides machine-readable citation metadata.
+and research. The independently maintained Skill is now hosted by
+[CrabMods](https://github.com/CrabMods/game-save-to-minecraft).
+[CITATION.cff](CITATION.cff) provides machine-readable citation metadata.
 
 Author-owned code and the Skill use [MIT](LICENSE). The paper and documentation
 use [CC BY 4.0](LICENSE-PAPER.md); original demo visuals use
